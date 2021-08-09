@@ -43,12 +43,9 @@ $sql = "CREATE TABLE IF NOT EXISTS tbtest1"
     . "id INT AUTO_INCREMENT PRIMARY KEY,"
     . "name char(32),"
     . "comment TEXT"
-//    . "DATETIME"
     . ");";
     $stmt = $pdo->query($sql);
-    
-//$date = new DateTime();
-//$date = $date->format('Y-m-d H:i:s'); 
+ 
 $sql = $pdo -> prepare("INSERT INTO tbtest1 (name, comment) 
                         VALUES (:name, :comment)");
     $sql -> bindParam(':name', $name, PDO::PARAM_STR);
@@ -62,7 +59,6 @@ $sql = 'SELECT * FROM tbtest1';
         echo $row['id'].',';
         echo $row['name'].',';
         echo $row['comment'].',';
-//        echo $row['date'].'<br>';
         echo "<hr>";    
     }
 }    
